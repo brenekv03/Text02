@@ -29,15 +29,19 @@ namespace Text02
                 int jinZnak = 0;
                 string operatory = "+-*/";
                 StreamReader streamReader = new StreamReader(openFileDialog1.FileName);
-                while(streamReader.EndOfStream)
+                while(!streamReader.EndOfStream)
                 {
                     string line = streamReader.ReadLine();
-                    if (line.Contains(operatory));
-                    /*for(int i =0; i < line.Length; i++)
+                    foreach(char c in line)
                     {
-                        
-                    }*/
+                        if (char.IsUpper(c)) pcVelkych++;
+                        else if (char.IsLower(c)) pcMalych++;
+                        else if (char.IsDigit(c)) pcCifer++;
+                        else if (c.ToString().Contains(operatory)) pcAritOpe++;
+                        else jinZnak++;
+                    }
                 }
+                MessageBox.Show("Počet velkých: " + pcVelkych + "\nPočet malých: " + pcMalych + "\nPočet cifer: " + pcCifer + "\nPočet operátorů: " + pcAritOpe + "\nPočet ostatních: " + jinZnak);
             }
         }
 
