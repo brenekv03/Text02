@@ -37,7 +37,7 @@ namespace Text02
                         if (char.IsUpper(c)) pcVelkych++;
                         else if (char.IsLower(c)) pcMalych++;
                         else if (char.IsDigit(c)) pcCifer++;
-                        else if (c.ToString().Contains(operatory)) pcAritOpe++;
+                        else if (operatory.Contains(c.ToString())) pcAritOpe++;
                         else jinZnak++;
                     }
                 }
